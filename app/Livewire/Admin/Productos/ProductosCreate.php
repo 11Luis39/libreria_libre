@@ -34,7 +34,7 @@ class ProductosCreate extends Component
 
 
 
-        $this->producto['imagen'] = $this->image->store('productos','public');
+        $this->producto['imagen'] = $this->image->store('producto','public');
         //dd($this->producto['imagen']);
         
         $producto = Producto::create($this->producto);
