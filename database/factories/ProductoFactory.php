@@ -21,7 +21,7 @@ class ProductoFactory extends Factory
             'descripcion' => $this->faker->text(100),
             'precio' => $this->faker->randomFloat(2, 1, 100),
             'stock' => $this->faker->numberBetween(1, 100),
-            'imagen' => 'productos/' . $this->faker->image('public/storage/productos', 640, 480, null, false),
+            'imagen' => 'producto/' . $this->faker->image('public/storage/producto', 640, 480, null, false),
         ];
     }
 }
