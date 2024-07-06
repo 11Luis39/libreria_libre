@@ -9,10 +9,10 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-
-        $lastProductos =Producto::orderBy('created_at', 'desc')
-        ->take(100)
-        ->get();
+        $lastProductos = Producto::orderBy('created_at', 'desc')->paginate(12);
         return view('welcome', compact('lastProductos'));
     }
+
 }
+
+

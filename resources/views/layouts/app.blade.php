@@ -14,7 +14,7 @@
     <!-- Fonts awesome-->
     <script src="https://kit.fontawesome.com/18274c0ebf.js" crossorigin="anonymous"></script>
 
-    <!-- Scripts -->
+    <!-- Scripts --> 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
@@ -36,7 +36,21 @@
 
     @stack('modals')
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     @livewireScripts
+    @stack('js') 
+    @if (session('swal'))
+        <script>
+            Swal.fire({!! json_encode(session('swal')) !!})
+        </script>
+    @endif
+    <script>
+        Livewire.on('swal', data => {
+            Swal.fire(data[0]);
+        });
+    </script>
 </body>
 
 </html>

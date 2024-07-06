@@ -36,7 +36,7 @@ class ProductosEdit extends Component
             ]
         );
         if ($this->image) {
-            $this->productoEdit['imagen'] = $this->image->store('productos', 'public');
+            $this->productoEdit['imagen'] = $this->image->store('producto', 'public');
         }
         $this->producto->update($this->productoEdit);
         return redirect()->route('admin.productos.index');

@@ -16,7 +16,7 @@
                     </a>
                 </h1>
                 <div class="flex-1">
-                    <x-input class="w-full" placeholder="buscar producto"></x-input>
+                    <x-input oninput="search(this.value)" class="w-full" placeholder="buscar producto"></x-input>
                 </div>
                 <div class=" flex items-center space-x-4 md:space-x-8">
 
@@ -73,15 +73,23 @@
 
 
 
-                    <button class="text-3xl">
+                    <a href="{{ route('carrito.index') }}" class="relative">
                         <i class="fas fa-shopping-cart text-white"></i>
-                    </button>
+                        <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-xs flex justify-center items-center">
+                            {{ Cart::instance('shopping')->count() }}
+                        </span>
+                    </a>
                 </div>
             </div>
         </x-container>
     </header>
-
-    <div>
-
-    </div>
 </div>
+
+@push('js')
+    <script>
+        function search(value) {
+            alert(value);
+        }
+    </script>
+@endpush
+
