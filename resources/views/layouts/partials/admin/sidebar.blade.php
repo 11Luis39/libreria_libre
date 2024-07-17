@@ -12,6 +12,19 @@
             'route' => route('admin.productos.index'),
             'active' => request()->routeIs('admin.productos.*'),
         ],
+        [
+            'icon' => 'fa-solid fa-shipping-fast',
+            'nombre' => 'Pedidos',
+            'route' => route('admin.pedidos.index'),
+            'active' => request()->routeIs('admin.pedidos.*'),
+        ],
+        [
+            'icon' => 'fa-solid fa-user',
+            'nombre' => 'Usuarios',
+            'route' => route('admin.usuarios.index'),
+            'active' => request()->routeIs('admin.usuarios.*'),
+        ],
+
     ];
 @endphp
 <aside id="logo-sidebar"

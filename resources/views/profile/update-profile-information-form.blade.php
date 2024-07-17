@@ -81,6 +81,11 @@
                 @endif
             @endif
         </div>
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="direccion" value="{{ __('Address') }}" />
+            <x-input id="direccion" type="text" class="mt-1 block w-full" wire:model="state.direccion" required autocomplete="direccion" />
+            <x-input-error for="direccion" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">

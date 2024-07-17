@@ -73,9 +73,10 @@ class CarritoController extends Controller
     {
         // Obtener el contenido del carrito
         $contenido = Cart::instance('shopping')->content();
+        $total = $this->cartService->getTotal();
 
         // Retornar la vista del carrito con el contenido
-        return view('carrito.index', compact('contenido'));
+        return view('carrito.index', compact('contenido', 'total'));
     }
 }
 

@@ -56,6 +56,11 @@
                                 <x-dropdown-link :href="route('profile.show')">
                                     Mi perfil
                                 </x-dropdown-link>
+                                @role('admin')
+                                    <x-dropdown-link :href="route('admin.dashboard')">
+                                        Admin
+                                    </x-dropdown-link>
+                                @endrole
                                 <div class="border-t border-gray-200">
                                     <form method="POST" action="{{ route('logout') }}" x-data>
                                         @csrf
@@ -75,7 +80,8 @@
 
                     <a href="{{ route('carrito.index') }}" class="relative">
                         <i class="fas fa-shopping-cart text-white"></i>
-                        <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-xs flex justify-center items-center">
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-xs flex justify-center items-center">
                             {{ Cart::instance('shopping')->count() }}
                         </span>
                     </a>
@@ -92,4 +98,3 @@
         }
     </script>
 @endpush
-

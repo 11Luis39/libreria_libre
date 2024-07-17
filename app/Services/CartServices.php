@@ -38,6 +38,16 @@ class CartServices
         $this->actualizarDetallesCarrito();
     }
 
+    public function getTotal()
+{
+    $total = 0;
+
+    foreach (Cart::instance('shopping')->content() as $item) {
+        $total += $item->qty * $item->price; 
+    }
+
+    return $total;
+}
     public function removeFromCart($rowId)
     {
         $item = Cart::instance('shopping')->get($rowId);

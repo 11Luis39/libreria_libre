@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('pagos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pedido_id')->constrained('pedidos')->onDelete('cascade');
+            $table->string('estado');
+            $table->date('fecha');
+            $table->string('metodo');
+            $table->decimal('monto', 8, 2);
             $table->timestamps();
         });
     }
