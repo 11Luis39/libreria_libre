@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\WelcomeController;
@@ -24,6 +25,10 @@ Route::post('Pago/pagado',[PagoController::class, 'pagado'])->name('pago.pagado'
 Route::Get('gracias', function () {
     return view('gracias');
 })->name('gracias');
+
+
+Route::get('/factura/{id}', [FacturaController::class, 'show'])->name('factura.show');
+
 
 
 Route::middleware([

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Factura;
 use App\Models\Pago;
 use App\Models\Pedido;
 use App\Models\PedidoProducto;
@@ -124,6 +125,15 @@ class PagoController extends Controller
                 'metodo' =>'Tarjeta',
                 'monto' => $request->amount
             ]);
+
+            $factura = Factura::create([
+                'pedido_id' => $pedido->id,
+                'total' => $request->amount,
+                'fecha' => now(),
+            ]);
+        
+            // Guardar el ID de la factura en la sesión para usarlo en la vista
+            session()->flash('factura_id', $factura->id);
             Cart::destroy();
 
             session()->flash('pedido', [

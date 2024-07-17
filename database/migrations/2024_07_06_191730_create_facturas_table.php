@@ -9,16 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pedido_id')->constrained('pedidos')->onDelete('cascade');
-            $table->date('fecha');
-            $table->decimal('total', 8, 2);
+            $table->foreignId('pedido_id')->constrained(); // Asegúrate de que esta línea esté presente
+            $table->decimal('total', 10, 2);
+            $table->dateTime('fecha');
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

@@ -36,6 +36,11 @@
                     {{ $response['order']['amount'] }} {{ $response['order']['currency'] }}
 
                 </P>
+                @if (session('factura_id'))
+                    <a href="{{ route('factura.show', session('factura_id')) }}" class="btn btn-primary">Descargar
+                        Factura</a>
+                @endif
+
             </div>
         @endif
     </div>
