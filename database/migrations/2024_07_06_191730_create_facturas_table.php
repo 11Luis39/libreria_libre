@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pedido_id')->constrained('pedidos')->onDelete('cascade');
+            $table->date('fecha');
+            $table->decimal('total', 8, 2);
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pago;
 use App\Models\Pedido;
 use App\Models\PedidoProducto;
+use App\Models\Producto;
 use App\Services\CartServices;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -110,6 +111,9 @@ class PagoController extends Controller
                     'cantidad' => $item->qty,
                     'precio' => $item->price,
                 ]);
+                $producto = Producto::find($item->id);
+                $producto->stock -= $item->qty;
+                $producto->save();
             }
             $estadoPago = $response['dataMap']['ACTION_DESCRIPTION'] ?? 'desconocido';
 

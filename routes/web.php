@@ -35,10 +35,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-
-
-Route::Get('prueba', function () {
-    Cart::instance('shopping');
-    dd(Cart::content());
-});

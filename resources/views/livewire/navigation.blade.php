@@ -15,9 +15,6 @@
                         </span>
                     </a>
                 </h1>
-                <div class="flex-1">
-                    <x-input oninput="search(this.value)" class="w-full" placeholder="buscar producto"></x-input>
-                </div>
                 <div class=" flex items-center space-x-4 md:space-x-8">
 
                     <x-dropdown>
